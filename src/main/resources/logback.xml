@@ -1,0 +1,33 @@
+<configuration>
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <target>System.out</target>
+        <encoder>
+            <pattern>[%d{HH:mm:ss.SSS}] [%thread] %-5level %logger{36} %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="file" class="ch.qos.logback.core.FileAppender">
+        <file>logs/musity.log</file>
+        <encoder>
+            <pattern>%d{MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+<!--    <root level="OFF">-->
+<!--        <appender-ref ref="console"/>-->
+<!--    </root>-->
+    <logger name="com.musity" level="info">
+        <appender-ref ref="console"/>
+    </logger>
+    <logger name="com.musity" level="debug">
+        <appender-ref ref="file"/>
+    </logger>
+    <logger name="org.springframework" level="info">
+        <appender-ref ref="console"/>
+    </logger>
+    <logger name="org.hibernate" level="info">
+        <appender-ref ref="console"/>
+    </logger>
+    <logger name="com.mchange" level="info">
+        <appender-ref ref="console"/>
+    </logger>
+</configuration>
